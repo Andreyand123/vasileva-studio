@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Анастасия Васильева | Кератин и Ботокс для волос Москва</title>
     
-    <!-- Favicon с буквами VA -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Ctext x='50%25' y='55%25' font-family='Georgia, serif' font-size='32' font-weight='bold' fill='black' text-anchor='middle' dominant-baseline='middle'%3EVA%3C/text%3E%3C/svg%3E">
     <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='white'/%3E%3Ctext x='50%25' y='55%25' font-family='Georgia, serif' font-size='90' font-weight='bold' fill='black' text-anchor='middle' dominant-baseline='middle'%3EVA%3C/text%3E%3C/svg%3E">
     
@@ -58,29 +57,63 @@
         .btn-white { background-color: var(--white); color: var(--dark-bg); border: 2px solid var(--white); }
         .btn-white:hover { background-color: transparent; color: var(--white); }
 
+        /* УМНАЯ ШАПКА */
         header {
-            background-color: var(--dark-bg); padding: 20px 0;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000;
+            background-color: var(--dark-bg);
+            padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
         }
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo-text { 
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+        .logo-text {
             font-family: Georgia, serif;
-            font-size: 28px; 
-            font-weight: 500; 
+            font-size: 28px;
+            font-weight: 500;
             letter-spacing: 3px;
             color: var(--white);
             text-transform: uppercase;
+            transition: all 0.4s ease;
         }
-        nav { display: flex; gap: 30px; }
-        nav a { 
-            font-size: 13px; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            transition: color 0.3s; 
-            color: var(--white); 
+        nav {
+            display: flex;
+            gap: 30px;
+            transition: all 0.4s ease;
+            opacity: 1;
+            max-height: 100px;
+            overflow: hidden;
+        }
+        nav a {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            color: var(--white);
             font-weight: 500;
         }
         nav a:hover { color: var(--primary-color); }
+
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        header.scrolled .logo-text {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        header.scrolled nav {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
+            padding: 0;
+        }
 
         /* HERO С ФОНОМ */
         .hero {
@@ -89,7 +122,11 @@
             background-position: center;
             background-repeat: no-repeat;
             height: 80vh;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
         }
         .hero h1 { font-size: 42px; margin-bottom: 20px; letter-spacing: 3px; }
         .hero p { font-size: 18px; margin-bottom: 30px; font-weight: 300; }
@@ -197,19 +234,9 @@
             border: 2px solid var(--white);
             background: #fff;
         }
-        .map-wrapper ymaps {
-            width: 100% !important;
-        }
-        .map-info {
-            text-align: center;
-            margin-top: 30px;
-        }
-        .map-info p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
+        .map-wrapper ymaps { width: 100% !important; }
+        .map-info { text-align: center; margin-top: 30px; }
+        .map-info p { font-size: 16px; color: #555; margin-bottom: 20px; line-height: 1.6; }
         .map-route-btn {
             display: inline-block;
             background-color: var(--primary-color);
@@ -222,11 +249,9 @@
             transition: all 0.3s;
             border: 2px solid var(--primary-color);
         }
-        .map-route-btn:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-        }
+        .map-route-btn:hover { background-color: transparent; color: var(--primary-color); }
 
+        /* ВИДЖЕТ DIKIDI С МОДАЛКОЙ */
         .booking-section {
             background: var(--white);
             padding: 60px 0;
@@ -238,12 +263,94 @@
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             border: 1px solid #eee;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .dikidi-widget-container:hover {
+            transform: scale(1.02);
         }
         .dikidi-widget-container iframe {
             width: 100%;
             height: 600px;
             border: none;
             display: block;
+            pointer-events: none;
+        }
+        .dikidi-hint {
+            text-align: center;
+            margin-top: 15px;
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .widget-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .widget-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        .widget-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            z-index: 9999;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+        .widget-modal.active {
+            display: block;
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .widget-modal iframe {
+            width: 100%;
+            height: 80vh;
+            max-height: 700px;
+            border: none;
+            display: block;
+        }
+        .widget-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: var(--dark-bg);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+        .widget-close:hover {
+            background: var(--primary-color);
+            transform: rotate(90deg);
         }
 
         .location { background: var(--dark-bg); color: var(--white); text-align: center; }
@@ -268,6 +375,7 @@
             section { padding: 50px 0; }
             .header-content { flex-direction: column; gap: 15px; }
             .logo-text { font-size: 24px; }
+            header.scrolled .logo-text { font-size: 18px; }
             nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
             nav a { font-size: 12px; }
             .btn { width: 100%; max-width: 300px; padding: 14px 20px; font-size: 15px; }
@@ -276,21 +384,23 @@
             .feature-item, .service-card { padding: 25px 20px; }
             .feature-number { font-size: 36px; }
             .portfolio-item, .atm-item { flex: 0 0 90%; }
-            .dikidi-widget-container iframe { height: 650px; }
+            .dikidi-widget-container iframe { height: 500px; }
+            .widget-modal iframe { height: 85vh; }
         }
 
         @media (max-width: 480px) {
             .hero h1 { font-size: 28px; }
             .hero p { font-size: 14px; }
             .logo-text { font-size: 20px; }
+            header.scrolled .logo-text { font-size: 16px; }
             nav a { font-size: 11px; }
-            .dikidi-widget-container iframe { height: 750px; }
+            .dikidi-widget-container iframe { height: 450px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <header id="main-header">
         <div class="container header-content">
             <div class="logo-text">Anastasia Vasileva</div>
             <nav>
@@ -305,8 +415,7 @@
         </div>
     </header>
 
-    <!-- HERO С ФОНОМ -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
             <h1>Идеальные волосы<br>в Москве</h1>
             <p>Кератин • Ботокс • Счастье для волос<br>Эксперт по блонду и длине</p>
@@ -363,7 +472,7 @@
                     </div>
                 </div>
                 <div class="service-card">
-                    <h3>❄️ Холодное восстановление</h3>
+                    <h3>️ Холодное восстановление</h3>
                     <p class="service-short-desc">Для самых поврежденных волос</p>
                     <div class="service-full-desc">
                         Экстренная помощь для «убитых» волос (после осветления, химии или моря). Состав наносится без термической обработки (утюжка), чтобы не травмировать и без того слабые волосы. Максимальное увлажнение и остановка сечения. Безопасно даже для самых поврежденных локонов.
@@ -397,7 +506,6 @@
         </div>
     </section>
 
-    <!-- ПОРТФОЛИО: 8 фото (без 3522) -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2>Мои работы</h2>
@@ -445,7 +553,6 @@
         </div>
     </section>
 
-    <!-- АТМОСФЕРА: 11 фото (с 3522) -->
     <section id="atmosphere" class="atmosphere">
         <div class="container">
             <h2>Атмосфера студии</h2>
@@ -495,13 +602,20 @@
         <div class="container">
             <h2>Онлайн-запись</h2>
             <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 30px; font-size: 16px;">
-                Выберите удобное время и услугу прямо здесь
+                Нажмите на виджет, чтобы открыть запись на весь экран
             </p>
-            <div class="dikidi-widget-container">
+            <div class="dikidi-widget-container" id="widget-trigger">
                 <iframe src="https://dikidi.net/843434?p=1.pi-ssm" allowfullscreen></iframe>
             </div>
+            <p class="dikidi-hint">👆 Нажмите, чтобы открыть виджет</p>
         </div>
     </section>
+
+    <div class="widget-overlay" id="widget-overlay"></div>
+    <div class="widget-modal" id="widget-modal">
+        <button class="widget-close" id="widget-close">×</button>
+        <iframe src="https://dikidi.net/843434?p=1.pi-ssm" allowfullscreen></iframe>
+    </div>
 
     <section id="map" class="map-section">
         <div class="container">
@@ -521,7 +635,7 @@
             <h2>Сертификаты и обучение</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <span class="feature-number">🎓</span>
+                    <span class="feature-number"></span>
                     <p>Кератиновое выпрямление<br>Профессиональный курс</p>
                 </div>
                 <div class="feature-item">
@@ -552,7 +666,7 @@
                     <p>Ежедневно<br>10:00 - 21:00</p>
                 </div>
                 <div class="location-item">
-                    <h3>📱 Связь</h3>
+                    <h3> Связь</h3>
                     <p>Instagram / MAX<br>Ответ в течение часа</p>
                 </div>
             </div>
@@ -572,6 +686,49 @@
             <p>© 2026 Анастасия Васильева. Все права защищены.</p>
         </div>
     </footer>
+
+    <script>
+        const header = document.getElementById('main-header');
+        const hero = document.getElementById('hero');
+        
+        function updateHeader() {
+            const heroBottom = hero.offsetTop + hero.offsetHeight;
+            if (window.scrollY > heroBottom - 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+        
+        window.addEventListener('scroll', updateHeader);
+        window.addEventListener('resize', updateHeader);
+        updateHeader();
+
+        const widgetTrigger = document.getElementById('widget-trigger');
+        const widgetOverlay = document.getElementById('widget-overlay');
+        const widgetModal = document.getElementById('widget-modal');
+        const widgetClose = document.getElementById('widget-close');
+
+        function openWidget() {
+            widgetOverlay.classList.add('active');
+            widgetModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeWidget() {
+            widgetOverlay.classList.remove('active');
+            widgetModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        widgetTrigger.addEventListener('click', openWidget);
+        widgetClose.addEventListener('click', closeWidget);
+        widgetOverlay.addEventListener('click', closeWidget);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeWidget();
+        });
+    </script>
 
 </body>
 </html>
