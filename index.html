@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анастасия Васильева | Кератин и Ботокс для волос Москва</title>
+    
+    <!-- Favicon: чёрные буквы VA на белом фоне -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='white'/%3E%3Ctext x='50%25' y='55%25' font-family='Georgia, serif' font-size='32' font-weight='bold' fill='black' text-anchor='middle' dominant-baseline='middle'%3EVA%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='white'/%3E%3Ctext x='50%25' y='55%25' font-family='Georgia, serif' font-size='90' font-weight='bold' fill='black' text-anchor='middle' dominant-baseline='middle'%3EVA%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --dark-bg: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 { font-weight: 300; text-transform: uppercase; letter-spacing: 1px; }
+        a { text-decoration: none; color: inherit; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        section { padding: 60px 0; }
+
+        section h2 {
+            text-align: center; font-size: 28px; margin-bottom: 40px; position: relative;
+        }
+        section h2::after {
+            content: ''; display: block; width: 60px; height: 2px;
+            background: var(--primary-color); margin: 20px auto 0;
+        }
+
+        .btn {
+            display: inline-block; background-color: var(--dark-bg); color: var(--white);
+            padding: 16px 32px; border-radius: 50px; font-size: 16px; font-weight: bold;
+            transition: all 0.3s; text-transform: uppercase; border: 2px solid var(--dark-bg); cursor: pointer;
+            min-width: 200px; text-align: center;
+        }
+        .btn:hover { background-color: transparent; color: var(--dark-bg); }
+        .btn-outline { background-color: transparent; color: var(--dark-bg); border: 2px solid var(--dark-bg); }
+        .btn-outline:hover { background-color: var(--dark-bg); color: var(--white); }
+        .btn-gold { background-color: var(--primary-color); border-color: var(--primary-color); color: var(--white); }
+        .btn-gold:hover { background-color: transparent; color: var(--primary-color); }
+        .btn-white { background-color: var(--white); color: var(--dark-bg); border: 2px solid var(--white); }
+        .btn-white:hover { background-color: transparent; color: var(--white); }
+
+        header {
+            background-color: var(--dark-bg); padding: 20px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.3); position: sticky; top: 0; z-index: 1000;
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { 
+            font-family: Georgia, serif;
+            font-size: 28px; 
+            font-weight: 500; 
+            letter-spacing: 3px;
+            color: var(--white);
+            text-transform: uppercase;
+        }
+        nav { display: flex; gap: 30px; }
+        nav a { 
+            font-size: 13px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            transition: color 0.3s; 
+            color: var(--white); 
+            font-weight: 500;
+        }
+        nav a:hover { color: var(--primary-color); }
+
+        .hero {
+            background-color: var(--dark-bg);
+            height: 80vh;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
+        }
+        .hero h1 { font-size: 42px; margin-bottom: 20px; letter-spacing: 3px; }
+        .hero p { font-size: 18px; margin-bottom: 30px; font-weight: 300; }
+
+        .features { background: var(--white); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-item {
+            text-align: center; padding: 30px 20px; border: 1px solid #eee; border-radius: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .feature-number { font-size: 42px; color: var(--primary-color); font-weight: bold; display: block; margin-bottom: 15px; }
+
+        .services { background: var(--light-gray); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .service-card {
+            background: var(--white); padding: 30px 20px; border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: center; overflow: hidden; cursor: pointer; border-bottom: 3px solid transparent;
+        }
+        .service-card h3 { margin-bottom: 15px; color: var(--dark-bg); font-size: 18px; transition: color 0.3s; }
+        .service-short-desc { color: #666; font-size: 15px; line-height: 1.5; margin-bottom: 0; }
+        .service-full-desc {
+            max-height: 0; opacity: 0; overflow: hidden; margin-top: 0; color: #444;
+            font-size: 14px; line-height: 1.6; transition: all 0.4s ease; text-align: left; padding-top: 0;
+        }
+        .service-card:hover {
+            transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-bottom-color: var(--primary-color);
+        }
+        .service-card:hover h3 { color: var(--primary-color); }
+        .service-card:hover .service-full-desc {
+            max-height: 300px; opacity: 1; margin-top: 20px; padding-top: 20px; border-top: 1px solid #eee;
+        }
+
+        .portfolio { background: var(--white); }
+        .portfolio-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        .portfolio-scroll::-webkit-scrollbar { display: none; }
+        .portfolio-item {
+            flex: 0 0 85%;
+            max-width: 400px;
+            scroll-snap-align: center;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            aspect-ratio: 3/4;
+            background: #eee;
+        }
+        .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .portfolio-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 30px 20px 20px; color: var(--white); opacity: 1;
+        }
+        .portfolio-overlay h4 { font-size: 18px; margin-bottom: 5px; }
+        .portfolio-overlay p { font-size: 14px; opacity: 0.9; }
+        .swipe-hint {
+            text-align: center; color: #888; font-size: 14px; margin-top: 20px; font-style: italic;
+        }
+        .swipe-hint::before { content: '👉'; margin-right: 8px; }
+
+        .atmosphere { background: var(--light-gray); }
+        .atmosphere-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 20px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+        .atmosphere-scroll::-webkit-scrollbar { display: none; }
+        .atm-item {
+            flex: 0 0 85%;
+            max-width: 400px;
+            scroll-snap-align: center;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            background: #ddd;
+        }
+        .atm-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .atm-item:hover img { transform: scale(1.05); }
+
+        .certificates { background: var(--white); }
+
+        .map-section { background: var(--light-gray); }
+        .map-wrapper {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 2px solid var(--white);
+            background: #fff;
+        }
+        .map-wrapper ymaps {
+            width: 100% !important;
+        }
+        .map-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .map-info p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .map-route-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 2px solid var(--primary-color);
+        }
+        .map-route-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .booking-section {
+            background: var(--white);
+            padding: 60px 0;
+        }
+        .dikidi-widget-container {
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        .dikidi-widget-container iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+        .location { background: var(--dark-bg); color: var(--white); text-align: center; }
+        .location h2 { color: var(--white); }
+        .location h2::after { background: var(--primary-color); }
+        .location-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin: 40px 0; }
+        .location-item { padding: 20px; }
+        .location-item h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 18px; }
+        .location-item p { font-size: 16px; opacity: 0.9; }
+        .contact-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
+
+        footer { background-color: #111; color: #888; padding: 30px 0; text-align: center; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { margin: 0 10px; color: var(--white); font-size: 16px; transition: color 0.3s; }
+        .social-links a:hover { color: var(--primary-color); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; letter-spacing: 1px; }
+            .hero p { font-size: 16px; margin-bottom: 25px; }
+            .hero { height: 70vh; }
+            section h2 { font-size: 24px; margin-bottom: 30px; }
+            section { padding: 50px 0; }
+            .header-content { flex-direction: column; gap: 15px; }
+            .logo-text { font-size: 24px; }
+            nav { flex-wrap: wrap; justify-content: center; gap: 20px; }
+            nav a { font-size: 12px; }
+            .btn { width: 100%; max-width: 300px; padding: 14px 20px; font-size: 15px; }
+            .contact-buttons { flex-direction: column; align-items: center; }
+            .features-grid, .services-grid, .location-info { grid-template-columns: 1fr; gap: 20px; }
+            .feature-item, .service-card { padding: 25px 20px; }
+            .feature-number { font-size: 36px; }
+            .portfolio-item, .atm-item { flex: 0 0 90%; }
+            .dikidi-widget-container iframe { height: 500px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 14px; }
+            .logo-text { font-size: 20px; }
+            nav a { font-size: 11px; }
+            .dikidi-widget-container iframe { height: 450px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo-text">Anastasia Vasileva</div>
+            <nav>
+                <a href="#services">Услуги</a>
+                <a href="#portfolio">Портфолио</a>
+                <a href="#atmosphere">Атмосфера</a>
+                <a href="#booking">Запись</a>
+                <a href="#map">Как добраться</a>
+                <a href="#certificates">Сертификаты</a>
+                <a href="#location">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Идеальные волосы<br>в Москве</h1>
+            <p>Кератин • Ботокс • Счастье для волос<br>Эксперт по блонду и длине</p>
+            <a href="#booking" class="btn btn-gold">Записаться онлайн</a>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>Почему выбирают меня?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-number">5+ лет</span>
+                    <p>Опыта работы с кератиновым выпрямлением и восстановлением волос</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-number">50%</span>
+                    <p>Моих клиенток — сложные блондинки. Я знаю, как работать с осветленными волосами</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-number">0%</span>
+                    <p>Запаха. Работаю на составах без резкого запаха и формальдегида</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Мои услуги</h2>
+            <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 40px; font-size: 14px;">
+                Наведите или нажмите на услугу, чтобы узнать подробности
+            </p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>✨ Кератиновое выпрямление</h3>
+                    <p class="service-short-desc">Гладкость и блеск до 6 месяцев</p>
+                    <div class="service-full-desc">
+                        Насыщает волосы кератином, заполняя пустоты в структуре. Результат: идеально гладкое полотно, зеркальный блеск и отсутствие пушистости даже во влажную погоду. Эффект сохраняется до 4–6 месяцев. Подходит для непослушных, кудрявых и пористых волос.
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>💉 Ботокс для волос</h3>
+                    <p class="service-short-desc">Восстановление без утяжеления</p>
+                    <div class="service-full-desc">
+                        Глубокая реконструкция без утяжеления. Специальный состав проникает внутрь волоса, восстанавливая дисульфидные связи. Волосы становятся плотными, эластичными и напитанными. Идеально для тонких, ломких и тусклых волос. Не выпрямляет сильно, но убирает «пух».
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>🌸 Счастье для волос</h3>
+                    <p class="service-short-desc">Японский комплексный уход</p>
+                    <div class="service-full-desc">
+                        Японская система восстановления в 3 этапа. Работает как изнутри, так и снаружи: сначала лечит кутикулу, затем кортекс, и в конце запечатывает чешуйки. Волосы становятся мягкими, шелковистыми и послушными. Рекомендуется как поддерживающая процедура между кератином.
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>❄️ Холодное восстановление</h3>
+                    <p class="service-short-desc">Для самых поврежденных волос</p>
+                    <div class="service-full-desc">
+                        Экстренная помощь для «убитых» волос (после осветления, химии или моря). Состав наносится без термической обработки (утюжка), чтобы не травмировать и без того слабые волосы. Максимальное увлажнение и остановка сечения. Безопасно даже для самых поврежденных локонов.
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>🌿 Нанопластика</h3>
+                    <p class="service-short-desc">Безопасное выпрямление на аминокислотах</p>
+                    <div class="service-full-desc">
+                        Современная альтернатива кератину — выпрямление на основе натуральных аминокислот без формальдегида. Состав не только разглаживает, но и питает волосы изнутри. Идеально для беременных, кормящих мам и обладательниц чувствительной кожи головы. Результат — гладкие, здоровые волосы с естественным движением до 6 месяцев.
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>🧴 Пилинг кожи головы</h3>
+                    <p class="service-short-desc">Глубокое очищение и стимуляция роста</p>
+                    <div class="service-full-desc">
+                        Профессиональная процедура очищения кожи головы от ороговевших клеток, излишков себума и остатков стайлинга. Улучшает микроциркуляцию, стимулирует рост новых волос и усиливает действие уходовых средств. Рекомендуется делать 1 раз в 2–4 недели. Ощущение лёгкости и свежести сохраняется надолго.
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>🎨 Тонировка волос</h3>
+                    <p class="service-short-desc">Обновление цвета и нейтрализация желтизны</p>
+                    <div class="service-full-desc">
+                        Придание волосам желаемого оттенка без агрессивного осветления. Идеально для обновления цвета блонда, нейтрализации нежелательной желтизны, придания глубины и сияния натуральным волосам. Использую только щадящие безаммиачные составы, которые не травмируют структуру. Цвет получается ровным, насыщенным и долго не вымывается.
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#booking" class="btn btn-outline">Посмотреть цены и записаться</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Мои работы</h2>
+            <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 20px; font-size: 14px;">
+                Реальные результаты моих клиенток
+            </p>
+            <div class="portfolio-scroll">
+                <div class="portfolio-item">
+                    <img src="images/IMG_7774.jpeg" alt="Работа 1" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Кератиновое выпрямление</h4><p>Гладкость и блеск</p></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/IMG_7775.jpeg" alt="Работа 2" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Ботокс для волос</h4><p>Восстановление</p></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/IMG_7776.jpeg" alt="Работа 3" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Сложный блонд</h4><p>Кератин + уход</p></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/IMG_7777.jpeg" alt="Работа 4" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Восстановление длины</h4><p>Холодный ботокс</p></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/IMG_7778.jpeg" alt="Работа 5" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Зеркальный блеск</h4><p>Кератин</p></div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/IMG_7779.jpeg" alt="Работа 6" loading="lazy">
+                    <div class="portfolio-overlay"><h4>Комплексный уход</h4><p>Счастье для волос</p></div>
+                </div>
+            </div>
+            <p class="swipe-hint">Листайте вправо, чтобы увидеть больше работ</p>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://instagram.com/vasileva.anastasiaa" target="_blank" class="btn">Больше работ в Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="atmosphere" class="atmosphere">
+        <div class="container">
+            <h2>Атмосфера студии</h2>
+            <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 20px; font-size: 14px;">
+                Уют, комфорт и забота о каждом клиенте
+            </p>
+            <div class="atmosphere-scroll">
+                <div class="atm-item">
+                    <img src="images/coffee.jpeg" alt="Кофе и угощения" loading="lazy">
+                </div>
+                <div class="atm-item">
+                    <img src="images/IMG_7786.jpeg" alt="Интерьер студии" loading="lazy">
+                </div>
+                <div class="atm-item">
+                    <img src="images/IMG_7787.jpeg" alt="Интерьер студии" loading="lazy">
+                </div>
+                <div class="atm-item">
+                    <img src="images/IMG_7788.jpeg" alt="Интерьер студии" loading="lazy">
+                </div>
+                <div class="atm-item">
+                    <img src="images/IMG_7789.jpeg" alt="Интерьер студии" loading="lazy">
+                </div>
+                <div class="atm-item">
+                    <img src="images/IMG_7781.jpeg" alt="Интерьер студии" loading="lazy">
+                </div>
+            </div>
+            <p class="swipe-hint">Листайте вправо, чтобы увидеть больше фото</p>
+        </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <h2>Онлайн-запись</h2>
+            <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 30px; font-size: 16px;">
+                Выберите удобное время и услугу прямо здесь
+            </p>
+            <div class="dikidi-widget-container">
+                <iframe src="https://dikidi.net/843434?p=1.pi-ssm" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="map" class="map-section">
+        <div class="container">
+            <h2>Как добраться</h2>
+            <div class="map-wrapper">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9b262c46961f8a33272f44b031a4bbae342d36addfc5e2a77347524cdde2fa5d&amp;width=100%25&amp;height=450&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
+            <div class="map-info">
+                <p><strong>Адрес:</strong> Москва, м. Водный стадион<br>2 минуты пешком от метро</p>
+                <a href="https://yandex.ru/maps/-/CXayR8N~" target="_blank" class="map-route-btn">🗺️ Построить маршрут</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2>Сертификаты и обучение</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-number">🎓</span>
+                    <p>Кератиновое выпрямление<br>Профессиональный курс</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-number">🎓</span>
+                    <p>Ботокс для волос<br>Продвинутый уровень</p>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-number">🎓</span>
+                    <p>Работа с блондом<br>Мастер-класс</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; color: #888; font-style: italic;">
+                Все сертификаты доступны по запросу в Instagram или MAX
+            </p>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2>Контакты</h2>
+            <div class="location-info">
+                <div class="location-item">
+                    <h3>📍 Адрес</h3>
+                    <p>Москва, м. Водный стадион<br>2 минуты пешком от метро</p>
+                </div>
+                <div class="location-item">
+                    <h3>🕐 Часы работы</h3>
+                    <p>Ежедневно<br>10:00 - 21:00</p>
+                </div>
+                <div class="location-item">
+                    <h3>📱 Связь</h3>
+                    <p>Instagram / MAX<br>Ответ в течение часа</p>
+                </div>
+            </div>
+            <div class="contact-buttons">
+                <a href="https://instagram.com/vasileva.anastasiaa" target="_blank" class="btn btn-gold">Instagram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLt1ug34VPzD8vRDvM9F--6LXM425XNQmTGxROVYTTXmi87XA8" target="_blank" class="btn btn-white">MAX</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://instagram.com/vasileva.anastasiaa" target="_blank">Instagram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLt1ug34VPzD8vRDvM9F--6LXM425XNQmTGxROVYTTXmi87XA8" target="_blank">MAX</a>
+            </div>
+            <p>© 2026 Анастасия Васильева. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
