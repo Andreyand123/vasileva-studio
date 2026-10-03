@@ -684,6 +684,36 @@
         </div>
     </footer>
 
+    <!-- СКРЫТИЕ COOKIE БАННЕРА DIKIDI -->
+    <style>
+        .cookie-consent, .cookie-banner, .cookie-popup, 
+        [class*="cookie"], [id*="cookie"],
+        .gdpr-consent, [class*="gdpr"],
+        .cc-window, .cc-banner {
+            display: none !important;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const cookieBanners = document.querySelectorAll(
+                    '[class*="cookie"], [id*="cookie"], .cc-window, .cc-banner, .gdpr-consent'
+                );
+                cookieBanners.forEach(function(banner) {
+                    banner.style.display = 'none';
+                });
+                
+                const acceptButtons = document.querySelectorAll(
+                    '[class*="accept"], [id*="accept"], button[class*="agree"]'
+                );
+                if (acceptButtons.length > 0) {
+                    acceptButtons[0].click();
+                }
+            }, 1000);
+        });
+    </script>
+
     <script>
         const header = document.getElementById('main-header');
         const hero = document.getElementById('hero');
