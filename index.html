@@ -252,102 +252,7 @@
         .booking-section {
             background: var(--white);
             padding: 60px 0;
-        }
-        .dikidi-widget-container {
-            max-width: 500px;
-            margin: 0 auto;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            border: 1px solid #eee;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .dikidi-widget-container:hover {
-            transform: scale(1.02);
-        }
-        .dikidi-widget-container iframe {
-            width: 100%;
-            height: 600px;
-            border: none;
-            display: block;
-            pointer-events: none;
-        }
-        .dikidi-hint {
             text-align: center;
-            margin-top: 15px;
-            color: var(--primary-color);
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .widget-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 9998;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .widget-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-        .widget-modal {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.9);
-            width: 90%;
-            max-width: 500px;
-            max-height: 90vh;
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            z-index: 9999;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            opacity: 0;
-            transition: all 0.4s ease;
-        }
-        .widget-modal.active {
-            display: block;
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-        .widget-modal iframe {
-            width: 100%;
-            height: 80vh;
-            max-height: 700px;
-            border: none;
-            display: block;
-        }
-        .widget-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 40px;
-            height: 40px;
-            background: var(--dark-bg);
-            color: var(--white);
-            border: none;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10000;
-            transition: all 0.3s;
-            line-height: 1;
-        }
-        .widget-close:hover {
-            background: var(--primary-color);
-            transform: rotate(90deg);
         }
 
         .location { background: var(--dark-bg); color: var(--white); text-align: center; }
@@ -381,8 +286,6 @@
             .feature-item, .service-card { padding: 25px 20px; }
             .feature-number { font-size: 36px; }
             .portfolio-item, .atm-item { flex: 0 0 90%; }
-            .dikidi-widget-container iframe { height: 500px; }
-            .widget-modal iframe { height: 85vh; }
         }
 
         @media (max-width: 480px) {
@@ -391,7 +294,6 @@
             .logo-text { font-size: 20px; }
             header.scrolled .logo-text { font-size: 16px; }
             nav a { font-size: 11px; }
-            .dikidi-widget-container iframe { height: 450px; }
         }
     </style>
 </head>
@@ -558,9 +460,6 @@
             </p>
             <div class="atmosphere-scroll">
                 <div class="atm-item">
-                    <img src="images/coffee.jpeg" alt="Кофе и угощения" loading="lazy">
-                </div>
-                <div class="atm-item">
                     <img src="images/IMG_6604.jpg" alt="Интерьер студии" loading="lazy">
                 </div>
                 <div class="atm-item">
@@ -599,20 +498,11 @@
         <div class="container">
             <h2>Онлайн-запись</h2>
             <p style="text-align: center; color: #666; margin-top: -30px; margin-bottom: 30px; font-size: 16px;">
-                Нажмите на виджет, чтобы открыть запись на весь экран
+                Выберите удобное время и услугу
             </p>
-            <div class="dikidi-widget-container" id="widget-trigger">
-                <iframe src="https://dikidi.net/843434?p=1.pi-ssm" allowfullscreen></iframe>
-            </div>
-            <p class="dikidi-hint">&#128070; Нажмите, чтобы открыть виджет</p>
+            <a href="https://dikidi.net/843434?p=1.pi-ssm" target="_blank" class="btn btn-gold">Записаться онлайн</a>
         </div>
     </section>
-
-    <div class="widget-overlay" id="widget-overlay"></div>
-    <div class="widget-modal" id="widget-modal">
-        <button class="widget-close" id="widget-close">&times;</button>
-        <iframe src="https://dikidi.net/843434?p=1.pi-ssm" allowfullscreen></iframe>
-    </div>
 
     <section id="map" class="map-section">
         <div class="container">
@@ -684,36 +574,6 @@
         </div>
     </footer>
 
-    <!-- СКРЫТИЕ COOKIE БАННЕРА DIKIDI -->
-    <style>
-        .cookie-consent, .cookie-banner, .cookie-popup, 
-        [class*="cookie"], [id*="cookie"],
-        .gdpr-consent, [class*="gdpr"],
-        .cc-window, .cc-banner {
-            display: none !important;
-        }
-    </style>
-
-    <script>
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const cookieBanners = document.querySelectorAll(
-                    '[class*="cookie"], [id*="cookie"], .cc-window, .cc-banner, .gdpr-consent'
-                );
-                cookieBanners.forEach(function(banner) {
-                    banner.style.display = 'none';
-                });
-                
-                const acceptButtons = document.querySelectorAll(
-                    '[class*="accept"], [id*="accept"], button[class*="agree"]'
-                );
-                if (acceptButtons.length > 0) {
-                    acceptButtons[0].click();
-                }
-            }, 1000);
-        });
-    </script>
-
     <script>
         const header = document.getElementById('main-header');
         const hero = document.getElementById('hero');
@@ -730,31 +590,6 @@
         window.addEventListener('scroll', updateHeader);
         window.addEventListener('resize', updateHeader);
         updateHeader();
-
-        const widgetTrigger = document.getElementById('widget-trigger');
-        const widgetOverlay = document.getElementById('widget-overlay');
-        const widgetModal = document.getElementById('widget-modal');
-        const widgetClose = document.getElementById('widget-close');
-
-        function openWidget() {
-            widgetOverlay.classList.add('active');
-            widgetModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeWidget() {
-            widgetOverlay.classList.remove('active');
-            widgetModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        widgetTrigger.addEventListener('click', openWidget);
-        widgetClose.addEventListener('click', closeWidget);
-        widgetOverlay.addEventListener('click', closeWidget);
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeWidget();
-        });
     </script>
 
 </body>
